@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090611"><title>PROJECT VOID</title>
+<style>
+:root{color-scheme:dark;--p:#a66aff}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at top,#291044,#090611 65%);color:#f5edff;font-family:Consolas,"Courier New",monospace}.terminal{width:min(660px,100%);border:1px solid #7842b5;background:#090611f2;box-shadow:0 0 35px #8a40c633}.head,footer{padding:20px 24px;border-bottom:1px dashed #7842b5}.eyebrow{font-size:12px;letter-spacing:2px;color:var(--p)}h1{font-size:clamp(30px,7vw,44px);letter-spacing:4px;color:#d0aaff;margin:10px 0 4px}.sub,footer{font-size:11px;color:#9e8eae}main{padding:28px 24px}h2{font-size:19px}p{font-size:14px;line-height:1.6;color:#cbbdd9}label{display:block;font-size:12px;margin:20px 0 8px;color:#d8c5f4}input{width:100%;padding:14px;background:#100a1b;border:1px solid #7040a4;color:white;font:16px Consolas;letter-spacing:2px}button{width:100%;padding:14px;margin-top:14px;background:#55239a;border:1px solid #b27aff;color:white;font:bold 13px Consolas;letter-spacing:2px;cursor:pointer}button:hover{background:#7135bd}.msg{min-height:20px;margin-top:12px;color:#ff9cba;font-size:12px}.hidden{display:none}.reveal{margin-top:20px;padding:18px;border:1px dashed var(--p);background:#160d25}.code{font-size:clamp(18px,5vw,27px);color:#d5b5ff;overflow-wrap:anywhere;margin:12px 0}.invite{display:inline-block;color:#d8baff;margin-top:12px;overflow-wrap:anywhere}footer{border:0;border-top:1px dashed #7842b5}
+</style></head><body><section class="terminal"><header class="head"><div class="eyebrow">&gt; GAMER REPUBLIC :: CLASSIFIED</div><h1>PROJECT VOID</h1><div class="sub">ACCESS TERMINAL // AUTHORIZATION REQUIRED</div></header><main>
+<div class="eyebrow">● CONNECTION ESTABLISHED</div>
+<section id="pinStage"><h2>01 / ENTER THE ACCESS PIN</h2><p>A clue Gamer Republic CAKE Find the date hidden in the message and enter it below.</p><label for="pin">ACCESS PIN</label><input id="pin" inputmode="numeric" maxlength="8" placeholder="DDMMYYYY"><button id="pinBtn">UNLOCK TERMINAL</button><div class="msg" id="pinMsg"></div></section>
+<section id="verifyStage" class="hidden"><h2>02 / HUMAN VERIFICATION</h2><p>PIN accepted. Enter any seven-digit number to complete this verification step.</p><label for="verify">7-DIGIT VERIFICATION NUMBER</label><input id="verify" inputmode="numeric" maxlength="7" placeholder="0000000"><button id="verifyBtn">VERIFY</button><div class="msg" id="verifyMsg"></div></section>
+<section id="resultStage" class="hidden"><h2>03 / ACCESS GRANTED</h2><p>Verification complete. The final transmission has been recovered.</p><div class="reveal"><div class="eyebrow">VOID ACTIVATION CODE</div><div class="code" id="activationCode"></div><button id="copyBtn">COPY ACTIVATION CODE</button><div class="eyebrow" style="margin-top:22px">NEXT LOCATION</div><a class="invite" id="discordInvite" href="#" target="_blank" rel="noopener">OPEN SECRET DISCORD SERVER</a></div><p>Return to the secret server and submit the activation code in #general.</p></section>
+</main><footer>PROJECT VOID // GAMER REPUBLIC // END OF TRANSMISSION</footer></section>
+<script>
+/* CHANGE THESE TWO VALUES BEFORE PUBLISHING */
+const ACTIVATION_CODE = "GRGROPS768977CLUTCHXGOATEDLOL";
+const SECRET_SERVER_INVITE = "https://discord.gg/ww9nBV9Hj7";
+const ACCESS_PIN = "12082026"; // 12 August 2026
+const $ = id => document.getElementById(id);
+$("pinBtn").onclick = () => { if($("pin").value.trim()===ACCESS_PIN){$("pinStage").classList.add("hidden");$("verifyStage").classList.remove("hidden");}else{$("pinMsg").textContent="ACCESS DENIED. CHECK THE CLUE AGAIN.";} };
+$("pin").addEventListener("keydown",e=>{if(e.key==="Enter")$("pinBtn").click()});
+$("verifyBtn").onclick = () => {const v=$("verify").value.trim();if(!/^\d{7}$/.test(v)){$("verifyMsg").textContent="ENTER EXACTLY SEVEN DIGITS.";return;}$("activationCode").textContent=ACTIVATION_CODE;$("discordInvite").href=SECRET_SERVER_INVITE;$("verifyStage").classList.add("hidden");$("resultStage").classList.remove("hidden");};
+$("verify").addEventListener("keydown",e=>{if(e.key==="Enter")$("verifyBtn").click()});
+$("copyBtn").onclick=async()=>{try{await navigator.clipboard.writeText(ACTIVATION_CODE);$("copyBtn").textContent="COPIED!";}catch{$("copyBtn").textContent="SELECT THE CODE TO COPY";}};
+</script></body></html>
